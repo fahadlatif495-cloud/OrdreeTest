@@ -1,0 +1,46 @@
+{
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "space",
+		"lineWidth": 100
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useBlockStatements": "warn",
+				"noUselessElse": "warn"
+			},
+			"suspicious": {
+				"noConsole": "off"
+			}
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "asNeeded"
+		}
+	},
+	"overrides": [
+		{
+			"files": ["*.json", "*.jsonc"],
+			"formatter": {
+				"indentStyle": "space"
+			}
+		}
+	],
+	"files": {
+		"ignore": [
+			"node_modules",
+			"ios/Pods",
+			"**/.expo",
+			"**/build",
+			"**/dist"
+		]
+	}
+}
