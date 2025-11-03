@@ -2,9 +2,10 @@ import { fontFamily } from "@/assets/fonts";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
-import colors from "./colors";
+import colors from "../assets/colors";
+import Typography from "./Typography";
 
 interface FoodItem {
   id: string;
@@ -72,18 +73,18 @@ export const FoodCard: React.FC<FoodCardProps> = ({
             alignItems: "center",
           }}
         >
-          <Text style={styles.name}>{item.name}</Text>
+          <Typography style={styles.name}>{item.name}</Typography>
 
           <View>
             {item.rating && (
               <View style={styles.ratingContainer}>
                 <Ionicons name="star" size={scale(14)} color="#FCD34D" />
-                <Text style={styles.rating}>{item.rating}</Text>
+                <Typography style={styles.rating}>{item.rating}</Typography>
               </View>
             )}
           </View>
         </View>
-        <Text style={styles.restaurant}>{item.restaurant}</Text>
+        <Typography style={styles.restaurant}>{item.restaurant}</Typography>
 
         <View
           style={{
@@ -93,11 +94,11 @@ export const FoodCard: React.FC<FoodCardProps> = ({
           }}
         >
           <View>
-            <Text style={styles.delivery}>Free Delivery</Text>
+            <Typography style={styles.delivery}>Free Delivery</Typography>
           </View>
 
           <TouchableOpacity style={styles.priceButton}>
-            <Text style={styles.priceText}>$ {item.id}</Text>
+            <Typography style={styles.priceText}>$ {item.id}</Typography>
           </TouchableOpacity>
         </View>
       </View>

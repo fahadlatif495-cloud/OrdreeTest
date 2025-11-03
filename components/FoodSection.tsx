@@ -1,16 +1,11 @@
 import { fontFamily } from "@/assets/fonts";
 import { router } from "expo-router";
 import React from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
+import colors from "../assets/colors";
 import { FoodCard } from "./FoodCard";
-import colors from "./colors";
+import Typography from "./Typography";
 
 interface FoodItem {
   id: string;
@@ -40,12 +35,24 @@ export const FoodSection: React.FC<FoodSectionProps> = ({
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>{title}</Text>
+        <Typography
+          size={20}
+          color={colors.DarkRed}
+          family={fontFamily.semiBold}
+        >
+          {title}
+        </Typography>
         <TouchableOpacity
           onPress={() => router.push("/ViewAll")}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Text style={styles.viewAll}>View all</Text>
+          <Typography
+            size={16}
+            color={colors.DarkRed}
+            family={fontFamily.semiBold}
+          >
+            View all
+          </Typography>
         </TouchableOpacity>
       </View>
       <FlatList
@@ -80,11 +87,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: moderateScale(20),
-    color: colors.DarkRed,
-    fontFamily: fontFamily.semiBold,
-  },
-  viewAll: {
-    fontSize: moderateScale(16),
     color: colors.DarkRed,
     fontFamily: fontFamily.semiBold,
   },

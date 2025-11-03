@@ -1,15 +1,10 @@
+import colors from "@/assets/colors";
 import { fontFamily } from "@/assets/fonts";
-import colors from "@/components/colors";
+import Typography from "@/components/Typography";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React, { useMemo, useState } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
@@ -108,21 +103,22 @@ export default function ModalScreen() {
       accessibilityState={{ selected }}
       accessibilityLabel={option.label}
     >
-      <Text
-        style={[
-          styles.chipText,
-          { color: selected ? colors.white : colors.black },
-        ]}
+      <Typography
+        size={12}
+        family={fontFamily.medium}
+        color={selected ? colors.white : colors.black}
       >
         {option.label}
-      </Text>
+      </Typography>
     </TouchableOpacity>
   );
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Filters</Text>
+        <Typography size={20} color={colors.black} family={fontFamily.semiBold}>
+          Filters
+        </Typography>
         <TouchableOpacity onPress={() => router.back()} style={styles.closeBtn}>
           <Ionicons name="close" size={scale(22)} color={colors.black} />
         </TouchableOpacity>
@@ -136,7 +132,14 @@ export default function ModalScreen() {
           if (item === "sort") {
             return (
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Sort by</Text>
+                <Typography
+                  size={16}
+                  color={colors.DarkRed}
+                  family={fontFamily.semiBold}
+                  marginBottom={verticalScale(10)}
+                >
+                  Sort by
+                </Typography>
                 <View style={styles.rowWrap}>
                   {sortOptions.map((opt) =>
                     renderChip(opt, selectedSort === opt.id, () =>
@@ -150,7 +153,14 @@ export default function ModalScreen() {
           if (item === "offers") {
             return (
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Offers</Text>
+                <Typography
+                  size={16}
+                  color={colors.DarkRed}
+                  family={fontFamily.semiBold}
+                  marginBottom={verticalScale(10)}
+                >
+                  Offers
+                </Typography>
                 <View style={styles.rowWrap}>
                   {offerOptions.map((opt) =>
                     renderChip(opt, selectedOffers.has(opt.id), () =>
@@ -164,7 +174,14 @@ export default function ModalScreen() {
           if (item === "rating") {
             return (
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Rating</Text>
+                <Typography
+                  size={16}
+                  color={colors.DarkRed}
+                  family={fontFamily.semiBold}
+                  marginBottom={verticalScale(10)}
+                >
+                  Rating
+                </Typography>
                 <View style={styles.rowWrap}>
                   {ratingOptions.map((opt) =>
                     renderChip(opt, selectedRatings.has(opt.id), () =>
@@ -177,7 +194,14 @@ export default function ModalScreen() {
           }
           return (
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Categories</Text>
+              <Typography
+                size={16}
+                color={colors.DarkRed}
+                family={fontFamily.semiBold}
+                marginBottom={verticalScale(10)}
+              >
+                Categories
+              </Typography>
               <View style={styles.rowWrap}>
                 {categories.map((opt) =>
                   renderChip(opt, selectedCategories.has(opt.id), () =>
@@ -199,17 +223,25 @@ export default function ModalScreen() {
           style={[styles.footerBtn, styles.clearBtn]}
           onPress={handleClear}
         >
-          <Text style={[styles.footerBtnText, { color: colors.black }]}>
+          <Typography
+            size={14}
+            color={colors.black}
+            family={fontFamily.semiBold}
+          >
             Clear
-          </Text>
+          </Typography>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.footerBtn, styles.applyBtn]}
           onPress={handleApply}
         >
-          <Text style={[styles.footerBtnText, { color: colors.white }]}>
+          <Typography
+            size={14}
+            color={colors.white}
+            family={fontFamily.semiBold}
+          >
             Apply
-          </Text>
+          </Typography>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

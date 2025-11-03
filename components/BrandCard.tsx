@@ -1,9 +1,10 @@
 import { fontFamily } from "@/assets/fonts";
 import { Ionicons } from "@expo/vector-icons";
 import React, { ReactNode } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
-import colors from "./colors";
+import colors from "../assets/colors";
+import Typography from "./Typography";
 
 interface Brand {
   website: ReactNode;
@@ -50,9 +51,16 @@ export const BrandCard: React.FC<BrandCardProps> = ({ brand, onPress }) => {
           color={brand.textColor || "#E53E3E"}
         />
       </View>
-      <Text style={styles.brandName} numberOfLines={1}>
+      <Typography
+        size={10}
+        family={fontFamily.semiBold}
+        color={colors.black}
+        textAlign="center"
+        style={{ width: "70%" }}
+        numberOfLines={1}
+      >
         {brand.website}
-      </Text>
+      </Typography>
     </TouchableOpacity>
   );
 };

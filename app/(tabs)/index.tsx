@@ -1,6 +1,6 @@
+import colors from "@/assets/colors";
 import { BrandSection } from "@/components/BrandSection";
 import { CategorySection } from "@/components/CategorySection";
-import colors from "@/components/colors";
 import { FilterBar } from "@/components/FilterBar";
 import { FoodSection } from "@/components/FoodSection";
 import { Header } from "@/components/Header";
@@ -133,7 +133,7 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Header
         onLocationPress={() => console.log("Location pressed")}
-        onLoginPress={() => console.log("Login pressed")}
+        onLoginPress={() => router.push("/Login")}
       />
 
       <FlatList

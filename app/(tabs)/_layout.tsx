@@ -72,6 +72,19 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="crud"
+        options={{
+          title: "CRUD",
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              size={24}
+              name={focused ? "create" : "create-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

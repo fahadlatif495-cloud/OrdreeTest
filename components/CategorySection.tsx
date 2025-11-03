@@ -1,15 +1,10 @@
 import { fontFamily } from "@/assets/fonts";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
-import colors from "./colors";
+import colors from "../assets/colors";
+import Typography from "./Typography";
 
 interface Category {
   id: string;
@@ -38,7 +33,14 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>What would you like to order today?</Text>
+      <Typography
+        size={20}
+        color={colors.DarkRed}
+        family={fontFamily.semiBold}
+        marginBottom={verticalScale(16)}
+      >
+        What would you like to order today?
+      </Typography>
       <FlatList
         horizontal
         data={categories}
@@ -58,7 +60,14 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
                 color={colors.DarkRed}
               />
             </View>
-            <Text style={styles.categoryText}>{item.name}</Text>
+            <Typography
+              size={12}
+              color={colors.black}
+              family={fontFamily.medium}
+              textAlign="center"
+            >
+              {item.name}
+            </Typography>
           </TouchableOpacity>
         )}
       />

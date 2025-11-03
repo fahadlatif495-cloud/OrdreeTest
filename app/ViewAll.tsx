@@ -1,5 +1,6 @@
+import colors from "@/assets/colors";
 import { fontFamily } from "@/assets/fonts";
-import colors from "@/components/colors";
+import Typography from "@/components/Typography";
 import { useAlbums } from "@/hooks/useUsers";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
@@ -8,7 +9,6 @@ import {
   ActivityIndicator,
   FlatList,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -26,7 +26,14 @@ export default function ViewAll() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Ionicons name="chevron-back" size={scale(24)} color={colors.black} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>View all</Text>
+        <Typography
+          size={20}
+          color={colors.black}
+          family={fontFamily.semiBold}
+          style={{ marginLeft: scale(16) }}
+        >
+          View all
+        </Typography>
       </View>
 
       {isLoading ? (
@@ -40,7 +47,16 @@ export default function ViewAll() {
           showsVerticalScrollIndicator={false}
           bounces={false}
           contentContainerStyle={styles.scrollContent}
-          ListHeaderComponent={<Text style={styles.sectionTitle}>{title}</Text>}
+          ListHeaderComponent={
+            <Typography
+              size={20}
+              color={colors.DarkRed}
+              family={fontFamily.semiBold}
+              marginBottom={verticalScale(16)}
+            >
+              {title}
+            </Typography>
+          }
           renderItem={({ item }) => (
             <View style={styles.card}>
               <View style={[styles.brandBadge]}>
@@ -51,19 +67,31 @@ export default function ViewAll() {
                 />
               </View>
               <View style={styles.cardRight}>
-                <Text style={styles.brandName} numberOfLines={1}>
+                <Typography
+                  size={18}
+                  color={colors.black}
+                  family={fontFamily.semiBold}
+                  marginBottom={verticalScale(6)}
+                  style={{ width: "80%" }}
+                  numberOfLines={1}
+                >
                   {item.title}
-                </Text>
+                </Typography>
                 <View style={styles.etaRow}>
                   <Ionicons
                     name="time-outline"
                     size={scale(18)}
                     color={colors.grayLight}
                   />
-                  <Text style={styles.etaText}>
+                  <Typography
+                    size={14}
+                    color={colors.grayLight}
+                    family={fontFamily.medium}
+                    marginLeft={scale(8)}
+                  >
                     {item.id}
                     {item.userId} : {"mins"}
-                  </Text>
+                  </Typography>
                 </View>
               </View>
             </View>

@@ -1,9 +1,10 @@
 import { fontFamily } from "@/assets/fonts";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
-import colors from "./colors";
+import colors from "../assets/colors";
+import Typography from "./Typography";
 
 interface FilterBarProps {
   onFilterPress?: () => void;
@@ -29,12 +30,12 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.sortButton} onPress={onSortPress}>
-        <Text style={styles.buttonText}>Sort</Text>
+        <Typography style={styles.buttonText}>Sort</Typography>
         <Ionicons name="chevron-down" size={scale(12)} color={colors.black} />
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.offersButton} onPress={onOffersPress}>
-        <Text style={styles.buttonText}>Offers</Text>
+        <Typography style={styles.buttonText}>Offers</Typography>
         <Ionicons name="chevron-down" size={scale(12)} color={colors.black} />
       </TouchableOpacity>
 
@@ -43,7 +44,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         onPress={onStarOffersPress}
       >
         <Ionicons name="star" size={scale(10)} color={colors.black} />
-        <Text style={styles.starOffersText}>Offers 4.0+</Text>
+        <Typography style={styles.starOffersText}>Offers 4.0+</Typography>
       </TouchableOpacity>
     </View>
   );

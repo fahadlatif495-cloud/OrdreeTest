@@ -1,16 +1,11 @@
 import { fontFamily } from "@/assets/fonts";
 import { router } from "expo-router";
 import React, { ReactNode } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
+import colors from "../assets/colors";
 import { BrandCard } from "./BrandCard";
-import colors from "./colors";
+import Typography from "./Typography";
 
 interface Brand {
   id: string;
@@ -39,12 +34,24 @@ export const BrandSection: React.FC<BrandSectionProps> = ({
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>{title}</Text>
+        <Typography
+          size={18}
+          color={colors.DarkRed}
+          family={fontFamily.semiBold}
+        >
+          {title}
+        </Typography>
         <TouchableOpacity
           onPress={() => router.push("/ViewAll")}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Text style={styles.viewAll}>View all</Text>
+          <Typography
+            size={16}
+            color={colors.DarkRed}
+            family={fontFamily.semiBold}
+          >
+            View all
+          </Typography>
         </TouchableOpacity>
       </View>
       <FlatList
@@ -78,11 +85,6 @@ const styles = StyleSheet.create({
     color: colors.DarkRed,
     fontFamily: fontFamily.semiBold,
     marginBottom: 0,
-  },
-  viewAll: {
-    fontSize: moderateScale(16),
-    color: colors.DarkRed,
-    fontFamily: fontFamily.semiBold,
   },
   scrollContent: {
     paddingHorizontal: scale(16),

@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
-import colors from "./colors";
+import colors from "../assets/colors";
 
 interface SearchBarProps {
   placeholder?: string;

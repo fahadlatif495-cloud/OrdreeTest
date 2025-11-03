@@ -1,12 +1,12 @@
+import colors from "@/assets/colors";
 import { fontFamily } from "@/assets/fonts";
-import colors from "@/components/colors";
+import Typography from "@/components/Typography";
 import React, { ReactNode } from "react";
 import {
   Modal,
   Platform,
   Pressable,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -61,16 +61,18 @@ const CustomModal = ({
       >
         <Pressable style={styles.sheet} onPress={() => {}} accessible={false}>
           <SafeAreaView edges={["bottom"]} style={styles.contentWrap}>
+            <View style={styles.topBar} />
+
             <View style={styles.header}>
-              {!!title && <Text style={styles.title}>{title}</Text>}
-              <TouchableOpacity
-                onPress={onClose}
-                accessibilityRole="button"
-                accessibilityLabel="Close"
-                style={styles.closeBtn}
-              >
-                <Text style={styles.closeBtnText}>×</Text>
-              </TouchableOpacity>
+              {!!title && (
+                <Typography
+                  size={18}
+                  color={colors.DarkRed}
+                  family={fontFamily.semiBold}
+                >
+                  {title}
+                </Typography>
+              )}
             </View>
 
             <View style={styles.body}>{children}</View>
@@ -87,11 +89,13 @@ const CustomModal = ({
                       secondaryAction.label
                     }
                   >
-                    <Text
-                      style={[styles.footerBtnText, { color: colors.black }]}
+                    <Typography
+                      size={14}
+                      color={colors.black}
+                      family={fontFamily.semiBold}
                     >
                       {secondaryAction.label}
-                    </Text>
+                    </Typography>
                   </TouchableOpacity>
                 )}
                 {primaryAction && (
@@ -103,11 +107,13 @@ const CustomModal = ({
                       primaryAction.accessibilityLabel || primaryAction.label
                     }
                   >
-                    <Text
-                      style={[styles.footerBtnText, { color: colors.white }]}
+                    <Typography
+                      size={14}
+                      color={colors.white}
+                      family={fontFamily.semiBold}
                     >
                       {primaryAction.label}
-                    </Text>
+                    </Typography>
                   </TouchableOpacity>
                 )}
               </View>
@@ -137,8 +143,6 @@ const styles = StyleSheet.create({
     paddingBottom: verticalScale(12),
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(12),
@@ -189,5 +193,14 @@ const styles = StyleSheet.create({
   footerBtnText: {
     fontSize: moderateScale(14),
     fontFamily: fontFamily.semiBold,
+  },
+
+  topBar: {
+    width: scale(60),
+    height: verticalScale(2),
+    borderRadius: scale(4),
+    backgroundColor: colors.DarkRed,
+    alignSelf: "center",
+    marginVertical: verticalScale(12),
   },
 });

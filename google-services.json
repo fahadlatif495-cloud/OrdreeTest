@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "185316428095",
+    "project_id": "ordreetest",
+    "storage_bucket": "ordreetest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185316428095:android:08197d9ebb3891bfff2b8a",
+        "android_client_info": {
+          "package_name": "com.abd48.OrdreeTest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185316428095-ejgthh3sgdqq2vasmkot43jfmfijtrgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUPw4crWs_Qk7CeaGmaNHT2p8j-3o6nd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185316428095-ejgthh3sgdqq2vasmkot43jfmfijtrgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
